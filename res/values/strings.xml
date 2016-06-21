@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Assoc franco-comorienne</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="drawer_opened">Drawer Opened</string>
+    <string name="drawer_closed">Drawer Closed</string>
+
+    <string name="email_hint">E-mail</string>
+    <string name="password_hint">Password</string>
+    <string name="arail_font">Arial</string>
+    <string name="not_reg">Non enregistré ? Sinscrire</string>
+    <string name="sign_in">Se connecter</string>
+    <string name="title_activity_register">Register</string>
+    <string name="btn_link_to_register">Pas un membre? S inscrire maintenant.</string>
+    <string name="btn_link_to_login">Déjà enregistré! Connectez-vous.</string>
+    <string name="hint_name">Nom </string>
+    <string name="btn_login">E-mail</string>
+    <string name="btn_register">REGISTER</string>
+    <string name="title_activity_main">Welcome</string>
+    <string name="logout_btn">Logout</string>
+    <string name="welcome_text">Welcome</string>
+     
+    <string name="gadhr">Gestion des adhérents</string>
+    <string name="contactns">Contactez nous</string>
+    <string name="events">Événements</string>
+    <string name="tce"><u>Menu Principale</u></string>
+    <string name="dept">Departments</string>
+    <string name="typeface_avangeli">fonts/toto.ttf</string>
+    <string name="abt">A propos</string>
+    <string name="espaceadhr">Espace adhérent </string>
+    <string name="sig">Guide</string>
+    <string name="contact">Contact Us</string>
+    <string name="copyright">  Copyright © Rida_Said, ESGI 2016.</string>
+    <string name="title_activity_dept">Department</string>
+    <string name="title_activity_about">A propos de nous</string>
+    <string name="title_activity_contact">Contact Us</string>
+    <string name="addr">Thiagarajar College Of Engineering,\nMadurai 625 015,\nTamilnadu,\nINDIA</string>
+    <string name="email">Email Principal : principal@tce.edu\nRegistrar : registrar@tce.edu</string>
+    <string name="phn">College office : +91 452 2482240,2482241\nPrincipal(O) : +91 452 2482430 </string>
+    <string name="abtce">L association a pour but de regrouper les citoyens Comoriens vivant en France pour faciliter leur integration dans la vie sociale.</string>
+    <string name="app_enr">Login</string>
+    <string name="phne">Téléphone :</string>
+     <string name="adresse">Adresse :</string>
+     <string name="coord">Coordonnées :</string>
+    <string name="app_cpt">Votre Compte</string>
+    <string name="menu_settings">Settings</string>
+     <string name="app_enrg">S inscrire</string>
+   
+   
+     <string name="ville">Ville :</string>
+    <string name="emailtext">E-mail :</string>
+   
+</resources>
