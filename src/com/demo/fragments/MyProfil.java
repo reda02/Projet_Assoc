@@ -19,7 +19,8 @@ public class MyProfil extends TabActivity
 			public static String USER_St = null;
 			public static String USER_DN = null;
 			public static String USER_PHOTO = null;
-
+			public static String USER_GENRE = null;
+			public static String USER_Ville = null;
 			/** Called when the activity is first created. */
            
 			
@@ -41,7 +42,8 @@ public class MyProfil extends TabActivity
                                    
         				Intent i = new Intent(this, ProfilAdherent.class);
         				Intent intent = getIntent();
-        				
+        				String genre = intent.getStringExtra(Login.USER_GENRE);
+        				String ville = intent.getStringExtra(Login.USER_Ville);
         				String email = intent.getStringExtra(Login.USER_email);
         		        String nom = intent.getStringExtra(Login.USER_NOM);
         		        String prenom = intent.getStringExtra(Login.USER_PRRENOM);
@@ -49,6 +51,8 @@ public class MyProfil extends TabActivity
         		        String dte = intent.getStringExtra(Login.USER_DN);
         		        String image = intent.getStringExtra(Login.USER_PHOTO);
         		        
+        		        i.putExtra("USER_GENRE", genre);
+        		        i.putExtra("USER_Ville", ville);
         		        i.putExtra("USER_email", email);
         				i.putExtra("USER_NOM", nom);
         				i.putExtra("USER_PRRENOM", prenom);

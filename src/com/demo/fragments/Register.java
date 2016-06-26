@@ -128,16 +128,17 @@ public class Register extends Fragment implements OnClickListener{
             String password = pass.getText().toString();
             try {
                 // Building Parameters
-                List<NameValuePair> params = new ArrayList<NameValuePair>();
-                params.add(new BasicNameValuePair("nom", nom));
-                params.add(new BasicNameValuePair("email", email));
-                params.add(new BasicNameValuePair("password", password));
+                //List<NameValuePair> params = new ArrayList<NameValuePair>();
+               // params.add(new BasicNameValuePair("nom", nom));
+                //params.add(new BasicNameValuePair("email", email));
+               // params.add(new BasicNameValuePair("password", password));
  
                 Log.d("request!", "starting");
                 
                 //Posting user data to script 
-                JSONObject json = jsonParser.makeHttpRequest(
-                       LOGIN_URL, "POST", params);
+             JSONObject json = null ;
+                //= jsonParser.makeHttpRequest(
+                  //     LOGIN_URL, "POST", params);
  
                 // full json response
                 Log.d("Login attempt", json.toString());

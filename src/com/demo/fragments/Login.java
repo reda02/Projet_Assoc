@@ -1,7 +1,9 @@
 package com.demo.fragments;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -37,13 +39,14 @@ public class Login extends Fragment  implements OnClickListener{
 	SessionManager manager;
 	private EditText  mail=null;
 	private EditText  pass=null;
-	private EditText  user=null;
 	private Button mSubmit, mRegister;
 	public static String USER_NOM = null;
 	public static String USER_PRRENOM = null;
 	public static String USER_St= null;
 	public static String USER_DN = null;
 	public static String USER_PHOTO = null;
+	public static String USER_GENRE = null;
+	public static String USER_Ville = null;
 	public static final String USER_PWD = "USERPWD";
 	public static final String USER_id = "USERID";
 	public static final String USER_email = "USEREMAIl";
@@ -63,14 +66,14 @@ public class Login extends Fragment  implements OnClickListener{
 	// private static final String LOGIN_URL = "http://xxx.xxx.x.x:1234/webservice/login.php";
 
 	//testing on Emulator:
-	private static final String LOGIN_URL = "http://10.33.0.233/webservice/login.php";
+	private static final String LOGIN_URL = "http://associationcomores.com/servicetest.svc/AdherentInfo/Log";
 
 	//testing from a real server:
-	//private static final String LOGIN_URL = "http://www.yourdomain.com/webservice/login.php";
+	//private static final String LOGIN_URL = "http://10.33.0.233/webservice/login.php";
 
 	//JSON element ids from repsonse of php script:
-	private static final String TAG_SUCCESS = "success";
-	private static final String TAG_MESSAGE = "message";
+	private static final String TAG_SUCCESS = "StatutConnexion";
+	private static final String TAG_MESSAGE = "messagStatus";
 
 	@Override
 	public View onCreateView(LayoutInflater inflater,
@@ -131,8 +134,8 @@ public class Login extends Fragment  implements OnClickListener{
 
 		int success;
 
-		String email = mail.getText().toString();
-		String password = pass.getText().toString();
+		String email =  "Adjouza36"   ;            //mail.getText().toString();
+		String password = "Adjouza@Mohamed"  ;     //pass.getText().toString();
 
 		@Override
 		protected void onPreExecute() {
@@ -151,9 +154,9 @@ public class Login extends Fragment  implements OnClickListener{
 
 			try {
 				// Building Parameters
-				List<NameValuePair> params = new ArrayList<NameValuePair>();
-				params.add(new BasicNameValuePair("email", email));
-				params.add(new BasicNameValuePair("password", password));
+				HashMap<String, String> params = new HashMap<String, String>();
+				params.put("email", email);;
+				params.put( "password",password);
 
 				Log.d("request!", "starting");
 				// getting product details by making HTTP request
@@ -166,30 +169,35 @@ public class Login extends Fragment  implements OnClickListener{
 
 				// json success tag
 				success = json.getInt(TAG_SUCCESS);
-
-				USER_NOM =  json.getString("nom");
-				USER_PRRENOM = json.getString("prenom");
-				USER_St=  json.getString("situation");
-				USER_DN =  json.getString("dateNaissonce");
-				USER_PHOTO = json.getString("image");
+				
+				USER_GENRE =  json.getString("Genre");
+				USER_NOM =  json.getString("Nom");
+				USER_PRRENOM = json.getString("Prenom");
+				USER_St=  json.getString("SituatFam");
+				USER_DN =  json.getString("Naissance");
+				USER_Ville =  json.getString("VilOrig");
+				USER_PHOTO = json.getString("Photo");
 				//USER_NAME =json.getString("nom");
 
+				if(!email.equals("") && !password.equals("") ) {
+					if (success == 1) {
 
-				if (success == 1) {
+						// Log.d("your message is ",message);//login detail is wrong--u r invalide user
+						Log.d("Login Successful!2", json.toString());
 
-					// Log.d("your message is ",message);//login detail is wrong--u r invalide user
-					Log.d("Login Successful!2", json.toString());
+						return "success";
+					}else{
 
-					return "success";
+						//Log.d("your message is ",message);//login detail is wrong--u r invalide user
+						Log.d("Login Failure!1", json.getString(TAG_MESSAGE));
+						
+						return "echec";
+
+						//return json.getString(TAG_MESSAGE);
+
+					}
 				}else{
-
-					//Log.d("your message is ",message);//login detail is wrong--u r invalide user
-					Log.d("Login Failure!2", json.getString(TAG_MESSAGE));
-					// Toast.makeText(Login.this, "hhhhhhhhhh", Toast.LENGTH_LONG).show();
-
-					return "echec";
-
-					//return json.getString(TAG_MESSAGE);
+					Log.d("Login Failure!1 ", json.toString());
 
 				}
 			} catch (JSONException e) {
@@ -214,15 +222,16 @@ public class Login extends Fragment  implements OnClickListener{
 				Intent i = new Intent(getActivity(), MyProfil.class);
 				i.putExtra(USER_email, email);
 				i.putExtra(USER_PWD, password);
+				i.putExtra(USER_GENRE, USER_GENRE);
 				i.putExtra(USER_NOM, USER_NOM);
 				i.putExtra(USER_PRRENOM, USER_PRRENOM);
 				i.putExtra(USER_St, USER_St);
 				i.putExtra(USER_DN, USER_DN);
+				i.putExtra(USER_Ville, USER_Ville);
 				i.putExtra(USER_PHOTO, USER_PHOTO);
 				i.putExtra("nom", ad.getNom());
 				startActivity(i);
-
-
+				
 				Toast.makeText(getActivity(), file_url, Toast.LENGTH_LONG).show();
 			}else{
 

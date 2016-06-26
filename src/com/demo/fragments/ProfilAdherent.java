@@ -1,3 +1,7 @@
+
+
+
+
 package com.demo.fragments;
 
 import java.io.BufferedInputStream;
@@ -56,6 +60,8 @@ public class ProfilAdherent extends  FragmentActivity {
 		setContentView(R.layout.compte_user);
    
 		Intent intent = getIntent();
+		String genre = intent.getStringExtra("USER_GENRE");
+		String ville = intent.getStringExtra("USER_Ville");
 		String email = intent.getStringExtra("USER_email");
         String nom = intent.getStringExtra("USER_NOM");
         String prenom = intent.getStringExtra("USER_PRRENOM");
@@ -64,8 +70,11 @@ public class ProfilAdherent extends  FragmentActivity {
         image = intent.getStringExtra("USER_PHOTO");
         
         
-        //TextView textprofil = (TextView) findViewById(R.id.textprenom);TextView textnom = (TextView) findViewById(R.id.textnom);
-        TextView textemail = (TextView) findViewById(R.id.TextViewemail);
+        //TextView textprofil = (TextView) findViewById(R.id.textprenom);TextView textnom = (TextView) findViewById
+
+
+        TextView textemail = (TextView) findViewById(R.id.textviewemail);
+        TextView textville = (TextView) findViewById(R.id.textville);
         TextView textprofil = (TextView) findViewById(R.id.textprenom);
         TextView textsituation = (TextView) findViewById(R.id.textstiuatio);
         TextView textdatens = (TextView) findViewById(R.id.textdatens);
@@ -75,10 +84,11 @@ public class ProfilAdherent extends  FragmentActivity {
 
        
         //textnom.setText(nom);
-        textprofil.setText(prenom +" "+nom);
-        textsituation.setText(st);
-        textdatens.setText(dte);
-        textemail.setText(email);
+        textprofil.setText(genre+": "+prenom +" "+nom);
+        textsituation.setText("Situation familiale : "+st);
+        textdatens.setText("Date de naissance :"+dte);
+        textemail.setText("E-mail : "+email);
+        textville.setText("Ville : "+ville);
         information info = new information();
         info.execute("");
        
@@ -165,5 +175,3 @@ public class ProfilAdherent extends  FragmentActivity {
     
     
     
-
-

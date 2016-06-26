@@ -5,17 +5,21 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 import java.util.List;
  
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
+import org.apache.http.StatusLine;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.utils.URLEncodedUtils;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -35,8 +39,8 @@ public class JSONParser {
     // function get json from url
     // by making HTTP POST or GET mehtod
     public JSONObject makeHttpRequest(String url, String method,
-            List<NameValuePair> params) {
-
+    		HashMap<String, String> params) throws JSONException {
+    	String contentType = "application/json";
         // Making HTTP request
         try {
 
@@ -46,19 +50,34 @@ public class JSONParser {
                 // defaultHttpClient
                 DefaultHttpClient httpClient = new DefaultHttpClient();
                 HttpPost httpPost = new HttpPost(url);
-                httpPost.setEntity(new UrlEncodedFormEntity(params));
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.accumulate("UserName", params.get("email"));
+                jsonObject.accumulate("Password", params.get("password"));  
+                json = jsonObject.toString();         
+                StringEntity se = new StringEntity(json);
+                httpPost.setHeader("Accept", "application/json");
+                httpPost.setHeader("Content-type", "application/json");
+                httpPost.setEntity(se);
                
                 	 HttpResponse httpResponse = httpClient.execute(httpPost);
                 	 if( httpResponse != null){ 
-                     HttpEntity httpEntity = httpResponse.getEntity();
-                     is = httpEntity.getContent();
-                }
+                     
                
-
+                     StatusLine statusline = httpResponse.getStatusLine() ;
+                     int  statuscod = statusline.getStatusCode() ;
+                 	if (statuscod == 200){
+                 		HttpEntity httpEntity = httpResponse.getEntity();
+                        is = httpEntity.getContent();
+                           
+                       } 
+                	 }
+               
             }else if(method == "GET"){
                 // request method is GET
                 DefaultHttpClient httpClient = new DefaultHttpClient();
-                String paramString = URLEncodedUtils.format(params, "utf-8");
+           
+                 
+                String paramString = URLEncodedUtils.format((List<? extends NameValuePair>) params, "utf-8");
                 url += "?" + paramString;
                 HttpGet httpGet = new HttpGet(url);
 
@@ -75,14 +94,17 @@ public class JSONParser {
             e.printStackTrace();
         }
         try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"), 8);
-            StringBuilder sb = new StringBuilder();
-            String line = null;
-            while ((line = reader.readLine()) != null) {
-                sb.append(line + "\n");
-            }
-            is.close();
-            json = sb.toString();
+        	
+        	  BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+              StringBuilder sb = new StringBuilder();
+              String line = null;
+              while ((line = reader.readLine()) != null) {
+                  sb.append(line + "\n");
+              }
+              is.close();
+              json = sb.toString();
+            
+   
         } catch (Exception e) {
             Log.e("Buffer Error", "Error converting result " + e.toString());
         }

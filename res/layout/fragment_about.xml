@@ -1,31 +1,49 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".AboutActivity" >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:fillViewport="false">
 
-    <TextView
-        android:id="@+id/menutitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/abt"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textStyle="bold" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="542dp"
+        android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/menutitle"
-        android:layout_below="@+id/menutitle"
-        android:layout_marginTop="20dp"
-        android:text="@string/abtce"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        <ImageView
+            android:id="@+id/imageViewabout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.37"
+            android:scaleType="centerCrop"
+            android:src="@drawable/homeimage" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/textViewabout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/abt"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textView2about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/abt"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+        <TextView
+            android:id="@+id/textViewabout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/abtd"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textView2about2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/abt"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+    </LinearLayout>
+
+</ScrollView>

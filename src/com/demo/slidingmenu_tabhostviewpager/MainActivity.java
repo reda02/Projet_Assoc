@@ -71,7 +71,7 @@ public class MainActivity extends ActionBarActivity {
 		listFragments = new ArrayList<Fragment>();
 		listFragments.add(new MyHome());
 		listFragments.add(new Login());
-		listFragments.add(new MyAbout());
+	    listFragments.add(new MyAbout());
 		//listFragments.add(new ProfilAdherent());
 
 		// load first fragment as default:

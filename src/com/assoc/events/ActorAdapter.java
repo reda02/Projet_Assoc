@@ -17,18 +17,18 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ActorAdapter extends ArrayAdapter<Actors> {
-	ArrayList<Actors> actorList;
+public class ActorAdapter extends ArrayAdapter<Event> {
+	ArrayList<Event> EventList;
 	LayoutInflater vi;
 	int Resource;
 	ViewHolder holder;
 
-	public ActorAdapter(Context context, int resource, ArrayList<Actors> objects) {
+	public ActorAdapter(Context context, int resource, ArrayList<Event> objects) {
 		super(context, resource, objects);
 		vi = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		Resource = resource;
-		actorList = objects;
+		EventList = objects;
 	}
  
 	
@@ -40,39 +40,31 @@ public class ActorAdapter extends ArrayAdapter<Actors> {
 			holder = new ViewHolder();
 			v = vi.inflate(Resource, null);
 			holder.imageview = (ImageView) v.findViewById(R.id.ivImage);
-			holder.tvName = (TextView) v.findViewById(R.id.tvName);
+			holder.tvTitre = (TextView) v.findViewById(R.id.tvName);
 			holder.tvDescription = (TextView) v.findViewById(R.id.tvDescriptionn);
-			holder.tvDOB = (TextView) v.findViewById(R.id.tvDateOfBirth);
-			holder.tvCountry = (TextView) v.findViewById(R.id.tvCountry);
-			holder.tvHeight = (TextView) v.findViewById(R.id.tvHeight);
-			holder.tvSpouse = (TextView) v.findViewById(R.id.tvSpouse);
-			holder.tvChildren = (TextView) v.findViewById(R.id.tvChildren);
+			holder.tvDate = (TextView) v.findViewById(R.id.tvDateOfBirth);
+	
 			v.setTag(holder);
 		} else {
 			holder = (ViewHolder) v.getTag();
 		}
 		holder.imageview.setImageResource(R.drawable.ic_launcher);
-		new DownloadImageTask(holder.imageview).execute(actorList.get(position).getImage());
-		holder.tvName.setText(actorList.get(position).getName());
-		holder.tvDescription.setText(actorList.get(position).getDescription());
-		holder.tvDOB.setText("B'day: " + actorList.get(position).getDob());
-		holder.tvCountry.setText(actorList.get(position).getCountry());
-		holder.tvHeight.setText("Height: " + actorList.get(position).getHeight());
-		holder.tvSpouse.setText("Spouse: " + actorList.get(position).getSpouse());
-		holder.tvChildren.setText("Children: " + actorList.get(position).getChildren());
+		new DownloadImageTask(holder.imageview).execute(EventList.get(position).getImage());
+		holder.tvTitre.setText(EventList.get(position).getTitre());
+		holder.tvDescription.setText(EventList.get(position).getDescription());
+		holder.tvDate.setText("Date de publication: " + EventList.get(position).getDate());
 		return v;
+		
 
 	}
 
 	static class ViewHolder {
 		public ImageView imageview;
-		public TextView tvName;
+		public TextView tvTitre;
 		public TextView tvDescription;
-		public TextView tvDOB;
-		public TextView tvCountry;
-		public TextView tvHeight;
-		public TextView tvSpouse;
-		public TextView tvChildren;
+		public TextView tvDate;
+
+	
 
 	}
 

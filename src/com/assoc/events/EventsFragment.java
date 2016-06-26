@@ -31,7 +31,7 @@ import android.widget.Toast;
 
 public class EventsFragment extends Fragment {
 
-	ArrayList<Actors> actorsList;
+	ArrayList<Event> EventList;
 
 	ActorAdapter adapter;
 
@@ -41,11 +41,12 @@ public class EventsFragment extends Fragment {
 
 		View v = inflater.inflate(R.layout.activity_events, container, false);
 
-		actorsList = new ArrayList<Actors>();
-		new JSONAsyncTask().execute("http://microblogging.wingnity.com/JSONParsingTutorial/jsonActors");
+		EventList = new ArrayList<Event>();
+		//http://microblogging.wingnity.com/JSONParsingTutorial/jsonActors
+		new JSONAsyncTask().execute("http://associationcomores.com/servicetest.svc/evenement/Liste/");
 
 		ListView listview = (ListView)v.findViewById(R.id.list);
-		adapter = new ActorAdapter(getActivity().getApplicationContext(), R.layout.row, actorsList);
+		adapter = new ActorAdapter(getActivity().getApplicationContext(), R.layout.row, EventList);
 
 		listview.setAdapter(adapter);
 
@@ -55,7 +56,7 @@ public class EventsFragment extends Fragment {
 			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 					long id) {
 				// TODO Auto-generated method stub
-				Toast.makeText(getActivity().getApplicationContext(), actorsList.get(position).getName(), Toast.LENGTH_LONG).show();				
+				Toast.makeText(getActivity().getApplicationContext(), EventList.get(position).getTitre(), Toast.LENGTH_LONG).show();				
 			}
 		});
 
@@ -94,25 +95,21 @@ public class EventsFragment extends Fragment {
 					String data = EntityUtils.toString(entity);
 
 
-					JSONObject jsono = new JSONObject(data);
-					JSONArray jarray = jsono.getJSONArray("actors");
-
+					//JSONObject jsono = new JSONObject(data);
+					
+					//JSONArray jarray = jsono.getJSONArray(data);
+					 JSONArray jarray = new JSONArray(data);
 					for (int i = 0; i < jarray.length(); i++) {
 						JSONObject object = jarray.getJSONObject(i);
+						Event actor = new Event();
+						actor.setTitre(object.getString("titre"));
+						actor.setDescription(object.getString("contenu"));
+						actor.setDate(object.getString("date"));
+						actor.setImage(object.getString("photo"));
 
-						Actors actor = new Actors();
-
-						actor.setName(object.getString("name"));
-						actor.setDescription(object.getString("description"));
-						actor.setDob(object.getString("dob"));
-						actor.setCountry(object.getString("country"));
-						actor.setHeight(object.getString("height"));
-						actor.setSpouse(object.getString("spouse"));
-						actor.setChildren(object.getString("children"));
-						actor.setImage(object.getString("image"));
-
-						actorsList.add(actor);
+						EventList.add(actor);
 					}
+					
 					return true;
 				}
 
