@@ -1,5 +1,6 @@
 package com.demo.fragments;
 import com.assoc.Activity.ContcatActivity;
+import com.assoc.Activity.DonActivity;
 import com.demo.slidingmenu_tabhostviewpager.R;
 
 import android.app.TabActivity;
@@ -62,9 +63,9 @@ public class MyProfil extends TabActivity
         				
                         t.setContent(i);
                         // Tab for Moksh
-                        TabSpec m = tabHost.newTabSpec("autres ");
-                        m.setIndicator("Autres");
-                        Intent mokshIntent = new Intent(this, ContcatActivity.class);
+                        TabSpec m = tabHost.newTabSpec("Faire un Don");
+                        m.setIndicator("Faire un Don");
+                        Intent mokshIntent = new Intent(this, DonActivity.class);
                         m.setContent(mokshIntent);
 
                         // Adding all TabSpec to TabHost

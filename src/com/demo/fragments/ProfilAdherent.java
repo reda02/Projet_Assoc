@@ -7,10 +7,19 @@ package com.demo.fragments;
 import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.List;
 
+import org.apache.http.NameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.assoc.adherentespace.JSONParser;
 import com.assoc.adherentespace.SessionManager;
+import com.demo.fragments.Login.AttemptLogin;
 import com.demo.slidingmenu_tabhostviewpager.R;
-
+import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -24,10 +33,14 @@ import android.graphics.RectF;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ProfilAdherent extends  FragmentActivity {
 	SessionManager manager;
@@ -35,10 +48,16 @@ public class ProfilAdherent extends  FragmentActivity {
 	Bitmap b , circularBitmap;
  
     ImageView  photo ;
-	
-	
-	   
-	
+    Dialog dlg;
+ 
+    private static final String LOGIN_URL = "http://associationcomores.com/servicetest.svc/AdherentInfo/Log";
+    Button chgpass,chgpassfr,cancel;
+    EditText oldpass,newpass;
+    String token,grav,oldpasstxt,newpasstxt;   
+    List<NameValuePair> params;
+    JSONObject json ;
+	// JSON parser class
+	JSONParser jsonParser = new JSONParser();
 	//onBackpressed to stop user from going MainActivity to Login Screen on back button press 
     @Override
     public void onBackPressed() {
@@ -58,7 +77,11 @@ public class ProfilAdherent extends  FragmentActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.compte_user);
-   
+		
+		
+	
+		
+		
 		Intent intent = getIntent();
 		String genre = intent.getStringExtra("USER_GENRE");
 		String ville = intent.getStringExtra("USER_Ville");
@@ -109,9 +132,54 @@ public class ProfilAdherent extends  FragmentActivity {
             	onAttachFragment(new Login());
             }
         });
+	
+    	chgpass = (Button)findViewById(R.id.chgbtn);
+    	
+       
+      
+      
+	
+	
 	}
 	
-	
+
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		switch (v.getId()) {
+		
+		case R.id.chgbtn:
+			dlg = new Dialog(ProfilAdherent.this);
+	        dlg.setContentView(R.layout.chgpassword_frag);
+	        dlg.setTitle("Change Password");
+			 oldpass = (EditText)dlg.findViewById(R.id.oldpass);
+             newpass = (EditText)dlg.findViewById(R.id.newpass);
+             oldpasstxt = oldpass.getText().toString();
+             newpasstxt = newpass.getText().toString();
+             HashMap<String, String> params = new HashMap<String, String>();
+             //  params.add(new BasicNameValuePair("oldpass", oldpasstxt));
+               params.put("newpass", newpasstxt);
+     			params.put("id", token);
+              
+           //    JSONObject json = sr.getJSON("http://192.168.56.1:8080/api/chgpass",params);
+            //   JSONObject json = sr.getJSON("http://10.0.2.2:8080/api/chgpass",params);
+             
+              
+     			try {
+     				json = jsonParser.makeHttpRequest(LOGIN_URL, "POST", params);
+     			} catch (JSONException e) {
+     				// TODO Auto-generated catch block
+     				e.printStackTrace();
+     			}
+     			dlg.show();
+     	
+             
+             
+             break;
+
+		default:
+			break;
+		}
+	}
 	public class information extends AsyncTask<String, String, String>
     {
         @Override
@@ -135,6 +203,7 @@ public class ProfilAdherent extends  FragmentActivity {
     }
 	
 	
+	@SuppressLint("NewApi")
 	public void setFragment(Fragment frag)
     {    
          android.app.FragmentManager fm = getFragmentManager();   

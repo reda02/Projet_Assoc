@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textViewdon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mon soutien "
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textViewdon2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Je fais un don de"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/TextViewdonresult"
+         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingLeft="10dp"
+        android:text="Result"  />
+
+    <SeekBar
+        android:id="@+id/seekBar1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="26dp"
+        android:max="100" />
+
+    <EditText
+        android:id="@+id/editTextmntdon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:hint="Montant libre"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/editTextMessage"
+        android:layout_width="match_parent"
+        android:layout_height="139dp"
+        android:layout_below="@id/editTextSubject"
+        android:layout_margin="5dp"
+        android:gravity="top|left"
+        android:hint="Commentaires !"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/buttonSend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextMessage"
+        android:layout_margin="5dp"
+        android:background="@drawable/btn_back_blue"
+        android:text="Je donne par carte bancaire" />
+
+</LinearLayout>

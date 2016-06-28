@@ -37,7 +37,12 @@
             android:name="com.demo.fragments.ProfilAdherent" >
           
       </activity>
+      
+    <activity
+            android:name="com.assoc.Activity.WebViewActivity"></activity>
+    
+    <activity
+            android:name="com.assoc.Activity.DonActivity"></activity>
     </application>
-
 
 </manifest>
