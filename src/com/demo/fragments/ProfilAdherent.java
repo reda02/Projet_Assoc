@@ -16,7 +16,6 @@ import org.json.JSONObject;
 
 import com.assoc.adherentespace.JSONParser;
 import com.assoc.adherentespace.SessionManager;
-import com.demo.fragments.Login.AttemptLogin;
 import com.demo.slidingmenu_tabhostviewpager.R;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -36,13 +35,14 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ProfilAdherent extends  FragmentActivity {
+public class ProfilAdherent extends  FragmentActivity implements OnClickListener {
 	SessionManager manager;
 	String image ;
 	Bitmap b , circularBitmap;
@@ -135,7 +135,7 @@ public class ProfilAdherent extends  FragmentActivity {
 	
     	chgpass = (Button)findViewById(R.id.chgbtn);
     	
-       
+    	chgpass.setOnClickListener(this);
       
       
 	
@@ -150,26 +150,26 @@ public class ProfilAdherent extends  FragmentActivity {
 		case R.id.chgbtn:
 			dlg = new Dialog(ProfilAdherent.this);
 	        dlg.setContentView(R.layout.chgpassword_frag);
-	        dlg.setTitle("Change Password");
+	        dlg.setTitle("Changer le Password");
 			 oldpass = (EditText)dlg.findViewById(R.id.oldpass);
              newpass = (EditText)dlg.findViewById(R.id.newpass);
              oldpasstxt = oldpass.getText().toString();
              newpasstxt = newpass.getText().toString();
-             HashMap<String, String> params = new HashMap<String, String>();
+            // HashMap<String, String> params = new HashMap<String, String>();
              //  params.add(new BasicNameValuePair("oldpass", oldpasstxt));
-               params.put("newpass", newpasstxt);
-     			params.put("id", token);
+             //  params.put("newpass", newpasstxt);
+     		//	params.put("id", token);
               
            //    JSONObject json = sr.getJSON("http://192.168.56.1:8080/api/chgpass",params);
             //   JSONObject json = sr.getJSON("http://10.0.2.2:8080/api/chgpass",params);
+             cancel = (Button)dlg.findViewById(R.id.cancelbtn);
+             cancel.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View view) {
+                     dlg.dismiss();
+                 }
+             });
              
-              
-     			try {
-     				json = jsonParser.makeHttpRequest(LOGIN_URL, "POST", params);
-     			} catch (JSONException e) {
-     				// TODO Auto-generated catch block
-     				e.printStackTrace();
-     			}
      			dlg.show();
      	
              

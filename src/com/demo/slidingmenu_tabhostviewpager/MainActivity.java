@@ -2,7 +2,7 @@ package com.demo.slidingmenu_tabhostviewpager;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -18,12 +18,14 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.assoc.Activity.ContcatActivity;
+import com.assoc.Activity.WebViewActivityPdf;
 import com.demo.adapters.NavListAdapter;
 import com.demo.fragments.Login;
 import com.demo.fragments.MyAbout;
@@ -107,6 +109,7 @@ public class MainActivity extends ActionBarActivity {
 		actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
 				R.string.drawer_opened, R.string.drawer_closed) {
 
+			@SuppressLint("NewApi")
 			@Override
 			public void onDrawerOpened(View drawerView) {
 				// TODO Auto-generated method stub
@@ -114,6 +117,7 @@ public class MainActivity extends ActionBarActivity {
 				super.onDrawerOpened(drawerView);
 			}
 
+			@SuppressLint("NewApi")
 			@Override
 			public void onDrawerClosed(View drawerView) {
 				// TODO Auto-generated method stub
@@ -136,6 +140,7 @@ public class MainActivity extends ActionBarActivity {
 		return true;
 	}
 
+	@SuppressLint("NewApi")
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will
@@ -152,7 +157,7 @@ public class MainActivity extends ActionBarActivity {
 							goToActivity(ContcatActivity.class);
 							break;
 			case R.id.item2:
-							// goToActivity(AboutActivity.class);
+				goToActivity(WebViewActivityPdf.class);
 							break;
 			case R.id.item3:
 							Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(tceBlog));

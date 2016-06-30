@@ -40,7 +40,7 @@ public class DonActivity extends Activity implements OnSeekBarChangeListener {
 	@Override
 	public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 		 value = progress;
-         result.setText ("Value:"+value);
+         result.setText (value+" Euro");
 		
 	}
 
