@@ -43,6 +43,9 @@
     
     <activity
             android:name="com.assoc.Activity.DonActivity"></activity>
+    <activity
+            android:name="com.assoc.Activity.WebViewActivityPdf"></activity>
+    
     </application>
 
 </manifest>

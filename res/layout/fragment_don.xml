@@ -24,7 +24,8 @@
         android:layout_height="wrap_content"
         android:paddingTop="20dp"
         android:paddingLeft="10dp"
-        android:text="Result"  />
+        android:text="Result" 
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <SeekBar
         android:id="@+id/seekBar1"

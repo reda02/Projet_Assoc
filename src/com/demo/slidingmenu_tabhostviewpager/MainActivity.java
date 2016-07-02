@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -24,11 +25,13 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.assoc.Activity.ContcatActivity;
-import com.assoc.Activity.WebViewActivityPdf;
 import com.demo.adapters.NavListAdapter;
 import com.demo.fragments.Login;
 import com.demo.fragments.MyAbout;
 import com.demo.fragments.MyHome;
+import com.demo.fragments.Register;
+import com.demo.inner.fragments.FragmentPdfView;
+import com.demo.inner.fragments.Fragmentcontacte;
 import com.demo.models.NavItem;
 
 
@@ -153,10 +156,25 @@ public class MainActivity extends ActionBarActivity {
 			switch(item.getItemId())
 			{
 			case R.id.item1:
-				goToActivity(ContcatActivity.class);
+				//goToActivity(ContcatActivity.class);
+				
+				Fragment frg = new Fragmentcontacte();
+				
+				FragmentManager fragmentManager1 = getSupportFragmentManager();
+				fragmentManager1
+				.beginTransaction()
+				.replace(R.id.main_content, frg)
+				.commit();
 				break;
 			case R.id.item2:
-				goToActivity(WebViewActivityPdf.class);
+				//goToActivity(WebViewActivityPdf.class);
+				FragmentPdfView fr = new FragmentPdfView();
+				
+				FragmentManager fragmentManager = getSupportFragmentManager();
+				fragmentManager
+				.beginTransaction()
+				.replace(R.id.main_content, fr)
+				.commit();
 				break;
 			case R.id.item3:
 				Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(tceBlog));

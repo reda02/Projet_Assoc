@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,10 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.assoc.Activity.WebViewActivity;
-import com.assoc.adherentespace.Adherent;
-import com.demo.fragments.MyProfil;
-import com.demo.fragments.Register;
-
 import com.demo.slidingmenu_tabhostviewpager.R;
 
 public class Tab1Fragment extends Fragment {
