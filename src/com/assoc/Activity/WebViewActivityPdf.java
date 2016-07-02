@@ -18,7 +18,7 @@ public class WebViewActivityPdf extends Activity {
 
 		webView = (WebView) findViewById(R.id.webView2);
 		webView.getSettings().setJavaScriptEnabled(true);
-		webView.loadUrl("https://drive.google.com/open?id=1blXy6ooFNSGfMC4jlzlaTrTUjwpVHVO-HYuZOI4y5FxqtLE-bEP8SYAH44X4pfIyU8mZ4FWrymkJh6RR");
+		webView.loadUrl("http://kiaai.com/files/pdf/0340481628886f7f2197bf133f37636c.pdf");
 	   
 	}
 

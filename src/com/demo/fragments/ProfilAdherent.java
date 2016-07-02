@@ -44,13 +44,15 @@ import android.widget.Toast;
 
 public class ProfilAdherent extends  FragmentActivity implements OnClickListener {
 	SessionManager manager;
-	String image ;
+	String image, imagep ;
 	Bitmap b , circularBitmap;
  
     ImageView  photo ;
     Dialog dlg;
  
     private static final String LOGIN_URL = "http://associationcomores.com/servicetest.svc/AdherentInfo/Log";
+    
+    private String photo_URL = "http://associationcomores.com/imagesAdherent/";
     Button chgpass,chgpassfr,cancel;
     EditText oldpass,newpass;
     String token,grav,oldpasstxt,newpasstxt;   
@@ -91,7 +93,7 @@ public class ProfilAdherent extends  FragmentActivity implements OnClickListener
         String st = intent.getStringExtra("USER_St");
         String dte = intent.getStringExtra("USER_DN");
         image = intent.getStringExtra("USER_PHOTO");
-        
+        imagep = photo_URL.concat(image);
         
         //TextView textprofil = (TextView) findViewById(R.id.textprenom);TextView textnom = (TextView) findViewById
 
@@ -103,7 +105,9 @@ public class ProfilAdherent extends  FragmentActivity implements OnClickListener
         TextView textdatens = (TextView) findViewById(R.id.textdatens);
         photo = (ImageView) findViewById(R.id.imageprofil);
         
-     
+       
+       
+      
 
        
         //textnom.setText(nom);
@@ -187,7 +191,7 @@ public class ProfilAdherent extends  FragmentActivity implements OnClickListener
 
             try
             {
-                URL url = new URL(image);
+                URL url = new URL(imagep);
                 InputStream is = new BufferedInputStream(url.openStream());
                 b = BitmapFactory.decodeStream(is);
                 circularBitmap = ImageConverter.getRoundedCornerBitmap(b, 100);

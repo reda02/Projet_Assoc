@@ -176,8 +176,8 @@ public class Login extends Fragment  implements OnClickListener{
 				USER_St=  json.getString("SituatFam");
 				USER_DN =  json.getString("Naissance");
 				USER_Ville =  json.getString("VilOrig");
-				USER_PHOTO = json.getString("Photo");
-				//USER_NAME =json.getString("nom");
+				USER_PHOTO = "2P.JPG";
+				//USER_NAME =json.getString("nom");json.getString("Photo");
 
 				if(!email.equals("") && !password.equals("") ) {
 					if (success == 1) {

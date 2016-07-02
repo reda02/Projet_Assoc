@@ -18,7 +18,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -34,13 +33,13 @@ import com.demo.models.NavItem;
 
 
 public class MainActivity extends ActionBarActivity {
-	private final String tceBlog = "www.associationcomores.com";
+	private final String tceBlog = "http://www.associationcomores.com";
 	DrawerLayout drawerLayout;
 	RelativeLayout drawerPane;
 	ListView lvNav;
 
-	 public List<NavItem>  listNavItems;
-	 public List<Fragment> listFragments;
+	public List<NavItem>  listNavItems;
+	public List<Fragment> listFragments;
 
 	ActionBarDrawerToggle actionBarDrawerToggle;
 
@@ -73,7 +72,7 @@ public class MainActivity extends ActionBarActivity {
 		listFragments = new ArrayList<Fragment>();
 		listFragments.add(new MyHome());
 		listFragments.add(new Login());
-	    listFragments.add(new MyAbout());
+		listFragments.add(new MyAbout());
 		//listFragments.add(new ProfilAdherent());
 
 		// load first fragment as default:
@@ -135,7 +134,7 @@ public class MainActivity extends ActionBarActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 
-		
+
 		getMenuInflater().inflate(R.menu.mymenu, menu);
 		return true;
 	}
@@ -146,49 +145,50 @@ public class MainActivity extends ActionBarActivity {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the MyHome/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-	
-		
-	if (actionBarDrawerToggle.onOptionsItemSelected(item)){
-		return true;
-	}else 	if(item != null){
-		switch(item.getItemId())
-		{
+
+
+		if (actionBarDrawerToggle.onOptionsItemSelected(item)){
+			return true;
+		}else 	if(item != null){
+			switch(item.getItemId())
+			{
 			case R.id.item1:
-							goToActivity(ContcatActivity.class);
-							break;
+				goToActivity(ContcatActivity.class);
+				break;
 			case R.id.item2:
 				goToActivity(WebViewActivityPdf.class);
-							break;
+				break;
 			case R.id.item3:
-							Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(tceBlog));
-							PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
-							@SuppressWarnings("deprecation")
-							Notification noti = new Notification.Builder(this)
-							.setTicker("un simple clic...!")
-							.setContentTitle("Besoin d'informations?")
-							.setContentText("Cliquez ici")
-							.setSmallIcon(R.drawable.arrowstars)
-							.setContentIntent(pIntent).getNotification();
-							noti.flags=Notification.FLAG_AUTO_CANCEL;
-							NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-							notificationManager.notify(0, noti);
-							break;
+				Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(tceBlog));
+				PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
+				@SuppressWarnings("deprecation")
+				Notification noti = new Notification.Builder(this)
+				.setTicker("un simple clic...!")
+				.setContentTitle("Besoin d'informations?")
+				.setContentText("Cliquez ici")
+				.setSmallIcon(R.drawable.arrowstars)
+				.setContentIntent(pIntent).getNotification();
+				noti.flags=Notification.FLAG_AUTO_CANCEL;
+				NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+				notificationManager.notify(0, noti);
+				break;
+
+			}
+			return false;
 		}
-		return false;
+
+		return super.onOptionsItemSelected(item);
+
+
 	}
-		
-   return super.onOptionsItemSelected(item);
-		
-		
-	}
-	
-	
+
+
 	private void goToActivity(Class<? extends Activity> activityClass)
 	{
 		Intent newActivity=new Intent(MainActivity.this,activityClass);
 		startActivity(newActivity);
 	}
-	
+
 
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {

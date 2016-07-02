@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+<!--  Le TabHost qui contient tous les éléments de nos onglets
+ -->
+
+    <TabHost
+        android:id="@+id/TabHost01"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <!-- TabWidget qui sert à afficher les onglets -->
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+            </TabWidget>
+            <!-- contenu de nos onglets. -->
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+
+                <!-- Contenu de l’onglet N°1 -->
+
+                <LinearLayout
+                    android:id="@+id/Onglet1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical"
+                    android:scrollbars="vertical" >
+
+                    <TextView
+                        android:id="@+id/TextViewOnglet1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ceci est un texte dans l’onglet N°1" >
+                    </TextView>
+                </LinearLayout>
+                <!-- Contenu de l’onglet N°2 -->
+
+                <LinearLayout
+                    android:id="@+id/Onglet2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/TextViewOnglet2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ceci est un texte dans l’onglet N°2" >
+                    </TextView>
+
+                    <ImageView
+                        android:id="@+id/ImageView01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon" >
+                    </ImageView>
+                </LinearLayout>
+                <!-- Contenu de l’onglet N°3 -->
+
+                <LinearLayout
+                    android:id="@+id/Onglet3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/TextViewOnglet3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ceci est un texte dans l’onglet N°3" >
+                    </TextView>
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+</LinearLayout>

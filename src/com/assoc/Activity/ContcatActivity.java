@@ -28,7 +28,7 @@ public class ContcatActivity extends Activity implements OnClickListener {
        protected void onCreate(Bundle savedInstanceState) {
               super.onCreate(savedInstanceState);
               setContentView(R.layout.fragment_contacte);
-              editTextEmail = (EditText) findViewById(R.id.editTextTo);
+              
               editTextSubject = (EditText) findViewById(R.id.editTextSubject);
               editTextMessage = (EditText) findViewById(R.id.editTextMessage);
               btnAttachment = (Button) findViewById(R.id.buttonAttachment);
@@ -65,7 +65,7 @@ public class ContcatActivity extends Activity implements OnClickListener {
               }
               if (v == btnSend) {
                      try {
-                           email = editTextEmail.getText().toString();
+                           email = "reda.bok@gmail.com";
                            subject = editTextSubject.getText().toString();
                            message = editTextMessage.getText().toString();
 

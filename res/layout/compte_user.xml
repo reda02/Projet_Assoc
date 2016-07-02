@@ -1,92 +1,98 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:fillViewport="false">
 
-    <ImageView
-        android:id="@+id/imageprofil"
-        android:layout_width="200px"
-        android:layout_height="200px"
-        android:layout_gravity="center"
-        android:layout_marginTop="30px"
-        android:layout_row="1"
-        android:background="@drawable/img" />
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="542dp"
+       android:orientation="vertical" >
 
-      <TextView
-        android:id="@+id/textprenom"
-        android:layout_width="326dp"
-        android:layout_height="50px"
-        android:layout_gravity="center"
-        android:layout_marginTop="30px"
-       android:text="Prenom &amp; Nom Text"
-        android:textAlignment="center"
-        android:textColor="@color/darken"
- android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
-    <Button
-        android:id="@+id/chgbtn"
-        android:layout_width="226dp"
-        android:layout_height="80px"
-        android:layout_gravity="center"
-        android:layout_marginTop="30px"
-        android:background="@drawable/btn_back_blue"
-        android:text="Change Password"
-        android:textAlignment="center"
-        android:textColor="#ffffff" />
+       <ImageView
+           android:id="@+id/imageprofil"
+           android:layout_width="136dp"
+           android:layout_height="121dp"
+           android:layout_gravity="center"
+           android:layout_marginTop="30px"
+           android:layout_row="1"
+           android:background="@drawable/img" />
 
-    <Button
-        android:id="@+id/btn_logout"
-        android:layout_width="221dp"
-        android:layout_height="80px"
-        android:layout_gravity="center"
-        android:layout_marginTop="10px"
-        android:background="@drawable/btn_back_blue"
-        android:text="Logout"
-        android:textAlignment="center"
-        android:textColor="#ffffff" />
+       <TextView
+           android:id="@+id/textprenom"
+           android:layout_width="match_parent"
+           android:layout_height="46dp"
+           android:layout_gravity="center"
+           android:layout_marginTop="10px"
+           android:layout_weight="0.01"
+           android:text="Prenom &amp; Nom Text"
+           android:textAlignment="center"
+           android:textAppearance="?android:attr/textAppearanceLarge"
+           android:textColor="@color/darken" >
+       </TextView>
 
-    <TextView
-        android:id="@+id/textdatens"
-        android:layout_width="226dp"
-        android:layout_height="40px"
-        android:layout_gravity="center"
-        android:layout_marginTop="30px"
-        android:text=" date NS text"
-        android:textAlignment="center"
-        android:textColor="@color/darken" />
+       <Button
+           android:id="@+id/chgbtn"
+           android:layout_width="226dp"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center"
+           android:layout_marginTop="30px"
+           android:background="@drawable/btn_back_blue"
+           android:text="Change Password"
+           android:textAlignment="center"
+           android:textColor="#ffffff" />
 
-     <TextView
-        android:id="@+id/textstiuatio"
-        android:layout_width="226dp"
-        android:layout_height="40px"
-        android:layout_gravity="center"
-        android:layout_marginTop="30px"
-         android:text=" Situation Text"
-        android:textAlignment="center"
-        android:textColor="@color/darken" />
+       <Button
+           android:id="@+id/btn_logout"
+           android:layout_width="226dp"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center"
+           android:layout_marginTop="10px"
+           android:background="@drawable/btn_back_blue"
+           android:text="Logout"
+           android:textAlignment="center"
+           android:textColor="#ffffff" />
 
-      <TextView
-        android:id="@+id/textviewemail"
-        android:layout_width="226dp"
-        android:layout_height="40px"
-        android:layout_gravity="center"
-        android:layout_marginTop="30px"
-   
-        android:textAlignment="center"
-        android:text="email Text"
-        android:textColor="@color/darken" />
+       <TextView
+           android:id="@+id/textdatens"
+           android:layout_width="207dp"
+           android:layout_height="51dp"
+           android:layout_gravity="center"
+           android:layout_marginTop="30px"
+           android:text=" date NS text"
+           android:textAlignment="center"
+           android:textColor="@color/darken" />
 
-      <TextView
-        android:id="@+id/textville"
-        android:layout_width="226dp"
-        android:layout_height="40px"
-        android:layout_gravity="center"
-        android:layout_marginTop="30px"
-        android:text=" ville NS text"
-        android:textAlignment="center"
-        android:textColor="@color/darken" />
-       
+       <TextView
+           android:id="@+id/textstiuatio"
+           android:layout_width="207dp"
+           android:layout_height="51dp"
+           android:layout_gravity="center"
+           android:layout_marginTop="30px"
+           android:text=" Situation Text"
+           android:textAlignment="center"
+           android:textColor="@color/darken" />
 
-</LinearLayout>
+       <TextView
+           android:id="@+id/textviewemail"
+           android:layout_width="207dp"
+           android:layout_height="51dp"
+           android:layout_gravity="center"
+           android:layout_marginTop="30px"
+           android:text="email Text"
+           android:textAlignment="center"
+           android:textColor="@color/darken" />
 
+       <TextView
+           android:id="@+id/textville"
+           android:layout_width="207dp"
+           android:layout_height="51dp"
+           android:layout_gravity="center"
+           android:layout_marginTop="30px"
+           android:text=" ville NS text"
+           android:textAlignment="center"
+           android:textColor="@color/darken" />
+   </LinearLayout>
 
+</ScrollView>

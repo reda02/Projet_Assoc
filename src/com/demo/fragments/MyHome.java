@@ -111,8 +111,8 @@ public class MyHome extends Fragment implements OnTabChangeListener,
 			tabSpec.setContent(new FakeContent(getActivity()));
 			tabHost.addTab(tabSpec);
 			
-			tabSpec = tabHost.newTabSpec("Actualités");
-			tabSpec.setIndicator("Actualités");
+			tabSpec = tabHost.newTabSpec("Équipe");
+			tabSpec.setIndicator("Équipe");
 			tabSpec.setContent(new FakeContent(getActivity()));
 			tabHost.addTab(tabSpec);
 		tabHost.setOnTabChangedListener(this);
