@@ -134,8 +134,8 @@ public class Login extends Fragment  implements OnClickListener{
 
 		int success;
 
-		String email =  "Adjouza36"   ;            //mail.getText().toString();
-		String password = "Adjouza@Mohamed"  ;     //pass.getText().toString();
+		String email =     mail.getText().toString();       //  "Said_Omar"   ; 
+		String password =    pass.getText().toString();  //"aid@Omar"  ; 
 
 		@Override
 		protected void onPreExecute() {
@@ -176,7 +176,7 @@ public class Login extends Fragment  implements OnClickListener{
 				USER_St=  json.getString("SituatFam");
 				USER_DN =  json.getString("Naissance");
 				USER_Ville =  json.getString("VilOrig");
-				USER_PHOTO = "2P.JPG";
+				USER_PHOTO = json.getString("Photo");
 				//USER_NAME =json.getString("nom");json.getString("Photo");
 
 				if(!email.equals("") && !password.equals("") ) {

@@ -34,6 +34,9 @@ public class EventsFragment extends Fragment {
 	ArrayList<Event> EventList;
 
 	ActorAdapter adapter;
+	String image, imagep ;
+	
+	private String photo_URL = "http://associationcomores.com/event/";
 
 	@Override
 	public View onCreateView(LayoutInflater inflater,
@@ -105,8 +108,10 @@ public class EventsFragment extends Fragment {
 						actor.setTitre(object.getString("titre"));
 						actor.setDescription(object.getString("contenu"));
 						actor.setDate(object.getString("date"));
-						actor.setImage(object.getString("photo"));
-
+						
+						image = object.getString("photo");
+						imagep = photo_URL.concat(image);
+						actor.setImage(imagep);
 						EventList.add(actor);
 					}
 					

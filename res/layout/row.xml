@@ -13,37 +13,32 @@
         <ImageView
             android:id="@+id/ivImage"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="118dp"
             android:layout_margin="8dp"
+            android:layout_weight="0.94"
             android:src="@drawable/ic_launcher" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tom Cruise"
-                android:textColor="#166CED"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <TextView
-                android:id="@+id/tvDateOfBirth"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#009A57"
-                android:text="Date de publication : July 3, 1962" />
-
-            
-
-            
-
         </LinearLayout>
-
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tom Cruise"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#166CED" />
+
+    <TextView
+        android:id="@+id/tvDateOfBirth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date de publication : July 3, 1962"
+        android:textColor="#009A57" />
 
     <TextView
         android:id="@+id/tvDescriptionn"

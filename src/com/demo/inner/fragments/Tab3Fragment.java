@@ -25,8 +25,8 @@ public class Tab3Fragment extends Fragment implements AdapterView.OnItemClickLis
 
 	//Noms des photos, nous montrons dans la liste
 	private static final String[] PHOTOS_NAMES = new String[] {
-			"Président de l'association : M. Mohamed ali",
-			"Comptable et trésorerie : M. ISSA MOGNIDAHO ",
+			"Président de l'association : M. Mohamed ali\n Email: Mohamed@gmail.com\n tel:+3303455643",
+			"Trésorerie : M. ISSA MOGNIDAHO\n Email: ISSA@gmail.com\n tel:+3307485643 ",
 			"Assistant : M. Ahmed\n Email: ahmed@gmail.com\n tel:+3306985643",
 			
 	};

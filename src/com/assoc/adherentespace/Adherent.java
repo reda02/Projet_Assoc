@@ -10,8 +10,9 @@ public class Adherent {
 	private String nom ;
 	private String prenom ; 
 	private String situation ;
-    private String   dateNaissonce ;
+    private String dateNaissonce ;
     private String image;
+    
    
 	
     public Adherent(int id, String email, String password, String nom, String prenom, String situation,
